@@ -1,0 +1,17 @@
+CREATE CONSTRAINT c1  if not exists ON (x:KeggIdentifier) ASSERT x.keggDisplayName IS UNIQUE
+ ;
+ CREATE CONSTRAINT c2 if not exists ON  (x:KeggReferenceDatabase) ASSERT x.keggPrefix IS UNIQUE
+ ;
+ create index i1 if not exists for (x:ReferenceSequence)  on (x.identifier)
+ ;
+ create index i2 if not exists for (x:ReferenceSequence)  on (x.databaseName) 
+ ;
+ create index i3 if not exists for (x:DatabaseIdentifier)  on (x.identifier)
+ ;
+ create index i4 if not exists for (x:DatabaseIdentifier)  on (x.databaseName)
+ ;
+ create index i5 if not exists for (x:KeggReferenceDatabase) on (x.keggPrefix)
+ ;
+ create index i6 if not exists for (x:keggCrossReference) on (x.via)
+ ;
+ 

@@ -1,0 +1,12 @@
+match ()-[r:keggReferenceDatabase]->()
+delete r
+;
+match ()-[r:keggCrossReference]->()
+delete r
+;
+match (x:KeggIdentifier)
+delete x
+;
+match (x:KeggReferenceDatabase)
+delete x
+;

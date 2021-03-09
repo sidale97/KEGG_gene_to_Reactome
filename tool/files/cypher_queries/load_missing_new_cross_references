@@ -1,0 +1,19 @@
+using periodic commit 500 load csv from 'file:///'+$file as row 
+with row[0] as hsaPrefix , row[1] as hsaPostfix , row[2] as otherPrefix , row[3] as otherPostfix , row[4] as linkType
+
+merge (k:KeggIdentifier{keggPrefix:hsaPrefix,keggPostfix:hsaPostfix,keggDisplayName:hsaPrefix+':'+hsaPostfix}) 
+
+with k,otherPrefix,otherPostfix,linkType
+call { 
+  with otherPrefix,otherPostfix
+  match (r:ReferenceSequence{databaseName:otherPrefix,identifier:otherPostfix})
+  return r
+  union 
+  with otherPrefix,otherPostfix
+  match (r:DatabaseIdentifier{databaseName:otherPrefix,identifier:otherPostfix})
+  return r
+}
+with k,r,linkType 
+merge (k)-[:keggCrossReference{via:'cross reference',path:linkType}]->(r) 
+return k.keggPrefix, k.keggPostfix, r.databaseName, r.identifier 
+; 

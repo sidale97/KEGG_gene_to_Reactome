@@ -1,0 +1,8 @@
+using periodic commit 500 load csv with headers from "file:///load/prefixes_translated.csv" as row
+merge (krd:KeggReferenceDatabase{keggPrefix:row.prefix})
+with row,krd
+merge (rd:ReferenceDatabase{displayName:row.`reactome displayName`})
+with row,krd,rd
+merge (krd)-[:keggCrossReference]->(rd)
+return krd.keggPrefix,rd.displayName
+;

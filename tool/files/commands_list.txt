@@ -1,0 +1,33 @@
+Usage: main.sh [OPTION] ... [COMMAND]
+
+Available options:
+	'-f' 
+   		never prompt, answer yes to all quesions.
+	'-j N'
+		use N parallel processes. If N is 0, use as many parallel processes as cores on your computer. 
+    
+Available commands:
+	'download new genes'
+ 		downloads a brand new list of human genes from KEGG.
+	'download new cross references'
+		downloads a brand new list of cross references, for each new gene previously downloaded.
+	'count missing new genes'
+		counts how many new genes weren't previously loaded into Neo4j.
+	'count missing new cross references'
+		counts how many new cross references weren't previously loaded into Neo4j.
+	'load missing new genes'
+		loads into neo4j the genes which still weren't.
+	'load missing new cross references'
+		loads into neo4j the cross references which still weren't.
+	'delete loaded genes and cross references'
+		deletes all genes and cross references previously loaded into neo4j.
+	'delete cache'
+		deletes the program cache, equivalent to reinstalling it.
+	'login USERNAME PASSWORD'
+		sets the credentials to login into neo4j to username USERNAME and password PASSWORD.
+	'logout'
+		unsets the login credentials.
+	'prepare neo4j'
+		loads indexes and constraints which speed up neo4j.
+	'auto USERNAME PASSWORD': 
+		executes all non-delete commands: download, counts and loads new genes and cross references.

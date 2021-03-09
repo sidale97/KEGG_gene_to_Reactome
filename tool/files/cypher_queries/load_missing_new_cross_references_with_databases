@@ -1,0 +1,31 @@
+using periodic commmit 500 load csv with headers from 'file:///load/'+$file as row 
+
+with  row[1] as hsaPrefix, row[2] as hsaPostfix, row[3] as otherPrefix, row[4] as otherPostfix 
+merge (hsaNode:KeggIdentifier {keggDisplayName:hsaPrefix+":"+hsaPostfix})
+on create set hsaNode.keggPrefix=hsaPrefix , hsaNode.keggPostfix=hsaPostfix
+
+merge (otherNode:KeggIdentifier {keggDisplayName:otherPrefix+":"+otherPostfix})
+on create set otherNode.keggPrefix=otherPrefix, otherNode.keggPostfix=otherPostfix
+
+with hsaNode,otherNode 
+match (hsaNode),(hsaKeggReferenceDatabase:KeggReferenceDatabase) 
+where hsaKeggReferenceDatabase.keggPrefix=hsaNode.keggPrefix
+with hsaNode,otherNode,hsaKeggReferenceDatabase
+merge (hsaNode)-[:keggReferenceDatabase]->(hsaKeggReferenceDatabase)
+with hsaNode,otherNode,hsaKeggReferenceDatabase
+match (otherNode),(otherKeggReferenceDatabase:KeggReferenceDatabase)
+where otherKeggReferenceDatabase.keggPrefix=otherNode.keggPrefix
+with hsaNode,otherNode,hsaKeggReferenceDatabase,otherKeggReferenceDatabase
+merge (otherNode)-[:keggReferenceDatabase]->(otherKeggReferenceDatabase)
+
+merge (hsaNode)-[:keggCrossReference]->(otherNode)
+
+with hsaNode,otherNode,hsaKeggReferenceDatabase,otherKeggReferenceDatabase
+match (otherNode)-[:keggReferenceDatabase]->(keggReferenceDatabase:KeggReferenceDatabase)-[:keggCrossReference]->(referenceDatabase:ReferenceDatabase)<-[:referenceDatabase]-(nodeWithIdentifier)
+where ( ('DatabaseIdentifier' in labels(nodeWithIdentifier)) or ( 'ReferenceSequence' in labels(nodeWithIdentifier) and exists ( match (nodeWithIdentifier)-[:species]->(s{displayName:'Homo sapiens'}) ) and  nodeWithIdentifier.identifier=otherNode.keggPostfix 
+
+with hsaNode , otherNode , nodeWithIdentifier
+merge (hsaNode)-[:keggCrossReference]->(nodeWithIdentifier)
+merge (otherNode)-[:keggCrossReference]->(nodeWithIdentifier)
+return hsaNode,otherNode,nodeWithIdentifier
+;

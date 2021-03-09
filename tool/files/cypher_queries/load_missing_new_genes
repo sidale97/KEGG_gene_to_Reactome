@@ -1,0 +1,10 @@
+using periodic commit 500 load csv from 'file:///'+$file as row 
+
+merge (k:KeggIdentifier{keggPrefix:'hsa',keggPostfix:row[0],keggDisplayName:'hsa'+':'+row[0]}) 
+
+with k,row 
+match (r:ReferenceSequence)
+where row[1] in r.geneName  
+merge (k)-[:keggCrossReference{via:'gene name'}]->(r)
+return k.keggDisplayName,r 
+;

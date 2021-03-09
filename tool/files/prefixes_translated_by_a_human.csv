@@ -1,0 +1,38 @@
+prefix,url,my canonical name,reactome displayName
+hsa,hsa,hsa,KEGG Gene (Homo sapiens)
+br,https://www.genome.jp/linkdb/database/brc-dna,brenda_or_kegg_brite,null
+brc-dna,https://www.genome.jp/linkdb/database/brc-dna,brenda_or_kegg_brite,null
+cpd,https://www.genome.jp/linkdb/database/compound,kegg,null
+dr,https://www.genome.jp/linkdb/database/drug,kegg,null
+ds,https://www.genome.jp/linkdb/database/disease,kegg,null
+ec,https://www.genome.jp/linkdb/database/enzyme,kegg,null
+emb,https://www.genome.jp/linkdb/database/embl,embl,EMBL
+ensembl,https://www.genome.jp/linkdb/database/ensembl,ensembl,ENSEMBL
+ensembl,https://www.genome.jp/linkdb/database/ensembl,ensembl,Ensembl
+gb,https://www.genome.jp/linkdb/database/genbank,genbank,EMBL
+gn,https://www.genome.jp/linkdb/database/genome,kegg,null
+hgnc,https://www.genome.jp/linkdb/database/hgnc,hgnc,HGNC
+imgt,https://www.genome.jp/linkdb/database/imgt,null,null
+ko,https://www.genome.jp/linkdb/database/orthology,kegg,null
+md,https://www.genome.jp/linkdb/database/module,kegg,null
+mirbase,https://www.genome.jp/linkdb/database/mirbase,http://www.mirbase.org/,miRBase
+nagahama-h,https://www.genome.jp/linkdb/database/nagahama-h,null,null
+nagahama-s,https://www.genome.jp/linkdb/database/nagahama-s,null,null
+ncbi-geneid,https://www.genome.jp/linkdb/database/ncbi-geneid,ncbi-gene,NCBI gene
+ncbi-proteinid,https://www.genome.jp/linkdb/database/ncbi-proteinid,ncbi protein,NCBI_Protein
+ne,https://www.genome.jp/linkdb/database/networkkegg,kegg,null
+oc,https://www.genome.jp/linkdb/database/oc,kegg,null
+omim,https://www.genome.jp/linkdb/database/omim,OMIM,OMIM
+path,https://www.genome.jp/linkdb/database/pathwaykegg,kegg,null
+pf,https://www.genome.jp/linkdb/database/pfam,pfam,null
+pharos,https://www.genome.jp/linkdb/database/pharos,pharos,null
+pronit,https://www.genome.jp/linkdb/database/pronit,pronit,null
+protherm,https://www.genome.jp/linkdb/database/protherm,protherm,null
+RG001,https://www.genome.jp/linkdb/database/RG001,kegg,null
+RG002,https://www.genome.jp/linkdb/database/RG002,kegg,null
+RG003,https://www.genome.jp/linkdb/database/RG003,kegg,null
+rn,https://www.genome.jp/linkdb/database/reactionkegg,kegg,null
+rs,https://www.genome.jp/linkdb/database/refseq,refseq,RefSeq
+sp,https://www.genome.jp/linkdb/database/swissprot,swiss prot,UniProt
+up,https://www.genome.jp/linkdb/database/uniprot,UniProt,UniProt
+vega,https://www.genome.jp/linkdb/database/vega,vega(ensembl?),null
