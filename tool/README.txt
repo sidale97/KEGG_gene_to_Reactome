@@ -1,12 +1,12 @@
 ==== "KEGG Gene to Reactome" tool ====
 
-This folder contains a bash script tool which automatically loads KEGG Genes entries into Reactome's graph database via Neo4j, and links them to any Reactome entry for which it found a cross reference (or a concatenation of cross references).
+This folder contains a Unix shell script tool which automatically loads KEGG Genes entries into Reactome's graph database via Neo4j, and links them to any Reactome entry for which it found a cross reference (or a concatenation of cross references).
 
 The tool is open source and available for free download on GitHub, at the following link: https://github.com/sidale97/KEGG_gene_to_Reactome
 
 ==== Tool usage ====
 
-The tool is entirely contained in the folder named "tool", which is the folder the file you are reading is stored in.
+The tool is entirely contained in the folder named "tool".
 
 The tool folder  must be placed in a particular sub-directory of the Neo4j instance Reactome is hosted by: it must be placed directly inside Neo4j’s "import" folder.
 
